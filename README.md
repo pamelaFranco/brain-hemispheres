@@ -9,38 +9,63 @@ This project implements a robust pipeline for separating left and right brain he
 ## Algorithm Workflow
 
 ### Step 1: Input Images
-**File: `01_t1_original.png`**
+**File: `segmentation_results/01_t1_original.png`**
+![Original T1-weighted MRI](segmentation_results/01_t1_original.png)
 - **Original T1-weighted MRI**: The base anatomical image used for segmentation
 - Shows axial, coronal, and sagittal views of the input T1 scan
 
 ### Step 2: Tissue Probability Maps
-**File: `02_c1_white_matter.png`**
+**File: `segmentation_results/02_c1_white_matter.png`**
+![White Matter Probability Map](segmentation_results/02_c1_white_matter.png)
 - **White Matter Probability Map (c1)**: Binary mask showing white matter tissue probabilities
 
-**File: `03_c2_gray_matter.png`**
+**File: `segmentation_results/03_c2_gray_matter.png`**
+![Gray Matter Probability Map](segmentation_results/03_c2_gray_matter.png)
 - **Gray Matter Probability Map (c2)**: Binary mask showing gray matter tissue probabilities
 
 ### Step 3: Brain Mask Creation
-**File: `04_brain_mask.png`**
+**File: `segmentation_results/04_brain_mask.png`**
+![Brain Mask Overlay](segmentation_results/04_brain_mask.png)
 - **Brain Mask Overlay**: Composite image showing the extracted brain region
 - Red overlay indicates the final brain mask region
 
 ### Step 4: 3D Gradient Calculation
-**File: `05_gradient_magnitude.png`**
+**File: `segmentation_results/05_gradient_magnitude.png`**
+![3D Gradient Magnitude](segmentation_results/05_gradient_magnitude.png)
 - **3D Gradient Magnitude**: Computed from the smoothed intracranial volume
 - Essential for watershed algorithm to identify natural separation boundaries
 
 ### Step 5: Watershed Seeds
-**File: `06_watershed_seeds.png`**
+**File: `segmentation_results/06_watershed_seeds.png`**
+![Watershed Seed Points](segmentation_results/06_watershed_seeds.png)
 - **Watershed Seed Points**: Initial markers for hemisphere separation
 - **Red**: Left hemisphere seed region
 - **Blue**: Right hemisphere seed region
 
 ### Step 6: Final Segmentation
-**File: `07_final_hemispheres.png`**
+**File: `segmentation_results/07_final_hemispheres.png`**
+![Final Hemisphere Segmentation](segmentation_results/07_final_hemispheres.png)
 - **Final Hemisphere Segmentation**: Results of 3D watershed algorithm
 - **Red**: Left hemisphere mask
 - **Blue**: Right hemisphere mask
+
+## Technical Details
+
+### Dependencies
+- Python 3.7+
+- nibabel
+- numpy
+- scipy
+- scikit-image
+- matplotlib
+
+### Usage
+```python
+# Set your file paths
+path = r"your_data_directory"
+t1_name = "your_t1_image.nii"
+c1_name = "c1_white_matter.nii"
+c2_name = "c2_gray_matter.nii"
 
 ## Author
 **Dr. Pamela Franco**  
