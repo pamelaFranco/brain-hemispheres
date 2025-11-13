@@ -67,6 +67,6 @@ t1_name = "your_t1_image.nii"
 c1_name = "c1_white_matter.nii"
 c2_name = "c2_gray_matter.nii"
 
-### Author
+# Author
 **Dr. Pamela Franco**  
 Email: pamela.franco@unab.cl / pafranco@uc.cl
